@@ -2,11 +2,14 @@ import React from "react";
 import "./AllDrinksByCatPage.css";
 import DrinkList from "../../components/DrinkList/DrinkList";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-const API_URL = "http://localhost:3000";
+const API_URL = "https://backend-alcohol-free-eshop.vercel.app";
 
-function AllDrinksByCatPage({ drinkCategory }) {
+function AllDrinksByCatPage() {
   const [drinks, setDrinks] = useState(null);
+
+  const { drinkCategory } = useParams();
 
   async function fetchAllDrinks() {
     try {
@@ -34,7 +37,7 @@ function AllDrinksByCatPage({ drinkCategory }) {
       <h2>Choose from all our drinks</h2>
       <h3>{drinkCategory}</h3>
       <div>
-        <DrinkList drinks={drinks} />
+        <DrinkList drinks={drinks} drinkCategory={drinkCategory} />
       </div>
     </div>
   );

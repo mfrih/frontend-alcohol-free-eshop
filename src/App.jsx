@@ -5,9 +5,10 @@ import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage/HomePage";
 import AllDrinksByCatPage from "./pages/AllDrinksByCatPage/AllDrinksByCatPage";
 import AllCocktailsPage from "./pages/AllCocktailsPage/AllCocktailsPage";
+import OneDrinkPage from "./pages/OneDrinkPage/OneDrinkPage";
+import OneCocktailPage from "./pages/OneCocktailPage/OneCocktailPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
-import OneDrinkPage from "./pages/OneDrinkPage/OneDrinkPage";
 
 function App() {
   return (
@@ -15,26 +16,21 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route
-          path="/beers"
-          element={<AllDrinksByCatPage drinkCategory="beer" />}
-        >
-          <Route path=":drinkId" element={<OneDrinkPage />} />
-        </Route>
-        <Route
+        <Route path="/:drinkCategory" element={<AllDrinksByCatPage />} />
+        {/* <Route
           path="/wines"
-          element={<AllDrinksByCatPage drinkCategory="wine" />}
-        >
-          <Route path=":drinkId" element={<OneDrinkPage />} />
-        </Route>
+          element={<AllDrinksByCatPage drinkCategory="wines" />}
+        />
         <Route
           path="/spirits"
-          element={<AllDrinksByCatPage drinkCategory="spirit" />}
-        >
-          <Route path=":drinkId" element={<OneDrinkPage />} />
+          element={<AllDrinksByCatPage drinkCategory="spirits" />} 
+        /> */}
+        <Route path="/:drinkCategory/:drinkId" element={<OneDrinkPage />} />
+        <Route path="/cocktails" element={<AllCocktailsPage />}>
+          <Route path=":cocktailId" element={<OneCocktailPage />} />
         </Route>
-        <Route path="*" element={<ErrorPage />} />
         <Route path="/our-philosophy" element={<AboutPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );

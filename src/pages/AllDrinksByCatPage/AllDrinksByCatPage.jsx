@@ -3,15 +3,16 @@ import "./AllDrinksByCatPage.css";
 import DrinkList from "../../components/DrinkList/DrinkList";
 import SubCategoryList from "../../components/SubCategoryList/SubCategoryList";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 const API_URL = "https://backend-alcohol-free-eshop.vercel.app";
 
 function AllDrinksByCatPage() {
   const [drinks, setDrinks] = useState(null);
-  const [subCategories, setSubCategories] = useState(null);
-
   const { drinkCategory } = useParams();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filter = searchParams.get("subcategory");
 
   async function fetchAllDrinks() {
     try {
@@ -37,16 +38,25 @@ function AllDrinksByCatPage() {
   const uniqueSubCategories = [
     ...new Set(drinks.map((drink) => drink.subcategory)),
   ];
-  console.log(uniqueSubCategories);
+
+  let displayedDrinks = drinks;
+  if (filter) {
+    displayedDrinks = drinks.filter((drink) => {
+      return drink.subcategory === filter;
+    });
+  }
 
   return (
     <div>
       <h2>Choose from all our drinks</h2>
       <div className="SubCategoryList">
-        <SubCategoryList uniqueSubCategories={uniqueSubCategories} />
+        <SubCategoryList
+          uniqueSubCategories={uniqueSubCategories}
+          setSearchParams={setSearchParams}
+        />
       </div>
       <div>
-        <DrinkList drinks={drinks} drinkCategory={drinkCategory} />
+        <DrinkList drinks={displayedDrinks} drinkCategory={drinkCategory} />
       </div>
     </div>
   );

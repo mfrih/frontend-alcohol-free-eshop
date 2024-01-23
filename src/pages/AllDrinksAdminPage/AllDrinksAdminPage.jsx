@@ -47,6 +47,7 @@ function AllDrinksAdminPage() {
       <div>
         {drinks.map((drink) => {
           return (
+            // at somepoint this should be turned into a OneDrinkCard component
             <div key={drink.id}>
               <h4>{drink.name}</h4>
               <p>{drink.brand}</p>

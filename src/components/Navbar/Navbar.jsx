@@ -11,6 +11,7 @@ function Navbar() {
       <NavLink to="/">Logo-Homepage</NavLink>
       <NavLink to="/cocktails">Cocktails</NavLink>
       <NavLink to="/our-philosophy">Our Philosophy</NavLink>
+      <NavLink to="/admin">🎛️</NavLink>
     </nav>
   );
 }

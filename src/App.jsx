@@ -9,6 +9,7 @@ import OneDrinkPage from "./pages/OneDrinkPage/OneDrinkPage";
 import OneCocktailPage from "./pages/OneCocktailPage/OneCocktailPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import AboutPage from "./pages/AboutPage/AboutPage";
+import AllDrinksAdminPage from "./pages/AllDrinksAdminPage/AllDrinksAdminPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         </Route>
         <Route path="/our-philosophy" element={<AboutPage />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/admin" element={<AllDrinksAdminPage />} />
       </Routes>
     </>
   );

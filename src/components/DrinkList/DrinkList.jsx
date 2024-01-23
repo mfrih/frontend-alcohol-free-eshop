@@ -8,6 +8,7 @@ function DrinkList({ drinks, drinkCategory }) {
       <div>
         {drinks.map((drink) => {
           return (
+            // at some point this should be changed into a OneDrinkCard component
             <div key={drink.id}>
               <Link to={`/${drinkCategory}/${drink.id}`}>
                 <img src={drink.image_url} alt={drink.name} />

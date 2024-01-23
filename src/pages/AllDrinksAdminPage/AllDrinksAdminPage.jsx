@@ -23,7 +23,16 @@ function AllDrinksAdminPage() {
         `${API_URL}/drinks/${drink.id}`,
         drinkToUpdate
       );
-      fetchAllDrinksData();
+
+      const copy = structuredClone(drinks);
+      const updatedDrinkList = copy.map((drink) => {
+        if (drink.id !== drinkToUpdate.id) {
+          return drink;
+        } else {
+          return drinkToUpdate;
+        }
+      });
+      setAllDrinks(updatedDrinkList);
     } catch (error) {
       console.error(error);
     }
@@ -58,7 +67,7 @@ function AllDrinksAdminPage() {
                 <input
                   type="checkbox"
                   id="featured"
-                  checked={drink.featured || false}
+                  checked={drink.featured ?? false}
                   onChange={() => updateFeaturedState(drink)}
                 />
               </p>

@@ -21,7 +21,7 @@ function Navbar({ style = "common" }) {
         <NavLink to="/wines">Wines</NavLink>
         <NavLink to="/spirits">Spirits</NavLink>
         <NavLink to="/">
-          <img className="logo-image" src="/public/logo1.png" alt="" />
+          <img className="logo-image" src="/logo1.png" alt="" />
         </NavLink>
         <NavLink to="/cocktails">Cocktails</NavLink>
         <NavLink to="/our-philosophy">Our Philosophy</NavLink>

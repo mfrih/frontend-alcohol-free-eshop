@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./DrinkCarousel.css";
+import OneDrinkCard from "../OneDrinkCard/OneDrinkCard";
 import axios from "axios";
 const API_URL = "https://backend-alcohol-free-eshop.vercel.app";
 
@@ -26,21 +27,12 @@ function DrinkCarousel() {
   }
 
   return (
-    <div>
+    <div className="DrinkCarousel">
       <h2>Our featured drinks</h2>
-      <div>
-        {featuredDrinks.map((drink) => {
-          return (
-            //at somepoint this should be turned into a OneDrinkCard component
-            <div key={drink.id}>
-              <h4>{drink.name}</h4>
-              <p>{drink.brand}</p>
-              <p>{drink.category}</p>
-              <p>{drink.subcategory}</p>
-              <p>{drink.price}</p>
-            </div>
-          );
-        })}
+      <div className="card-container">
+        {featuredDrinks.map((drink) => (
+          <OneDrinkCard key={drink.id} drink={drink} />
+        ))}
       </div>
     </div>
   );

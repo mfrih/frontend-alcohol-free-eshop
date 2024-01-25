@@ -4,11 +4,15 @@ import DrinkCarousel from "../../components/DrinkCarousel/DrinkCarousel";
 
 function HomePage() {
   return (
-    <div>
+    <div className="HomePage">
       <div className="cover-image">
-        <img src="/public/pexels-karolina-grabowska-4021976.jpg" alt="" />
+        <img src="/pexels-denys-gromov-12645208.jpg" alt="" />
+        <div className="homepage-tagline">
+          <h2>Premium Alcohol-Free Drinks</h2>
+          <h3>Healthy and tasty partying has never been easier</h3>
+        </div>
       </div>
-      <div>
+      <div className="section-content">
         <h2>Alcohol free socialising made easy and tasty !</h2>
         <p>
           This is something about how life can still be cool without alcohol

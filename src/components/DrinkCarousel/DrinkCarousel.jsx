@@ -28,8 +28,8 @@ function DrinkCarousel() {
 
   return (
     <div className="DrinkCarousel">
-      <h2>Our featured drinks</h2>
-      <div className="card-container">
+      <h2>Explore Our Customers' Favourites</h2>
+      <div className="cards-container">
         {featuredDrinks.map((drink) => (
           <OneDrinkCard key={drink.id} drink={drink} />
         ))}

@@ -14,11 +14,14 @@ import AllDrinksAdminPage from "./pages/AllDrinksAdminPage/AllDrinksAdminPage";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/:drinkCategory" element={<AllDrinksByCatPage />} />
-        {/* <Route
+        <Route path="/" element={<Navbar style="home" />}>
+          <Route index element={<HomePage />} />
+        </Route>
+        <Route path="/" element={<Navbar />}>
+          <Route path=":drinkCategory" element={<AllDrinksByCatPage />} />
+          {/* <Route
           path="/wines"
           element={<AllDrinksByCatPage drinkCategory="wines" />}
         />
@@ -26,13 +29,14 @@ function App() {
           path="/spirits"
           element={<AllDrinksByCatPage drinkCategory="spirits" />} 
         /> */}
-        <Route path="/:drinkCategory/:drinkId" element={<OneDrinkPage />} />
-        <Route path="/cocktails" element={<AllCocktailsPage />}>
-          <Route path=":cocktailId" element={<OneCocktailPage />} />
+          <Route path=":drinkCategory/:drinkId" element={<OneDrinkPage />} />
+          <Route path="cocktails" element={<AllCocktailsPage />}>
+            <Route path=":cocktailId" element={<OneCocktailPage />} />
+          </Route>
+          <Route path="our-philosophy" element={<AboutPage />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="admin" element={<AllDrinksAdminPage />} />
         </Route>
-        <Route path="/our-philosophy" element={<AboutPage />} />
-        <Route path="*" element={<ErrorPage />} />
-        <Route path="/admin" element={<AllDrinksAdminPage />} />
       </Routes>
     </>
   );

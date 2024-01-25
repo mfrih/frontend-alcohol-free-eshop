@@ -9,14 +9,15 @@ const openai = new OpenAI({
 });
 
 function AllCocktailsPage() {
-  const [sourSweetValue, setSourSweetValue] = useState(0);
-  const [bitterValue, setBitterValue] = useState(0);
+  const [sweetValue, setSweetValue] = useState(7);
+  const [bitterValue, setBitterValue] = useState(5);
   const [saltyValue, setSaltyValue] = useState(0);
   const [spicyValue, setSpicyValue] = useState(0);
   const [fruityValue, setFruityValue] = useState(0);
+  const [cocktail, setCocktail] = useState(null);
 
-  const handleSourSweetChange = (e) => {
-    setSourSweetValue(e.target.value);
+  const handleSweetChange = (e) => {
+    setSweetValue(e.target.value);
   };
 
   const handleBitterChange = (e) => {
@@ -38,7 +39,7 @@ function AllCocktailsPage() {
   async function handleCocktailGeneration() {
     try {
       const messageForAssistant = {
-        sourVSsweet: sourSweetValue,
+        sweet: sweetValue,
         bitter: bitterValue,
         salty: saltyValue,
         spicy: spicyValue,
@@ -48,7 +49,7 @@ function AllCocktailsPage() {
       const assistant = await openai.beta.assistants.retrieve(
         "asst_99IpTFCLwFOe8DZ1SvxVoBHl"
       );
-      console.log(assistant);
+
       const completion = await openai.chat.completions.create({
         messages: [
           {
@@ -61,7 +62,13 @@ function AllCocktailsPage() {
         response_format: { type: "json_object" },
       });
 
-      console.log(completion.choices[0]);
+      console.log(completion);
+
+      const returnedCocktail = JSON.parse(
+        completion.choices[0].message.content
+      );
+      // console.log(returnedCocktail);
+      setCocktail(returnedCocktail);
     } catch (error) {
       console.error(error);
     }
@@ -79,11 +86,7 @@ function AllCocktailsPage() {
       </h3>
       <p>Use the sliders to finetune your cocktail:</p>
       <div className="all-sliders">
-        <Slider
-          label="sourVSsweet"
-          value={sourSweetValue}
-          onChange={handleSourSweetChange}
-        />
+        <Slider label="sweet" value={sweetValue} onChange={handleSweetChange} />
         <Slider
           label="bitter"
           value={bitterValue}
@@ -100,7 +103,24 @@ function AllCocktailsPage() {
       <button onClick={handleCocktailGeneration}>
         Hey Maria, Generate my mocktail !
       </button>
-      <section></section>
+      {cocktail && (
+        <section className="cocktail">
+          <h3>{cocktail.name}</h3>
+          <h4>Ingredients</h4>
+          <ul>
+            {cocktail.ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
+            ))}
+          </ul>
+          <h4>Instructions</h4>
+          <ol>
+            {cocktail.instructions.map((instruction, index) => (
+              <li key={index}>{instruction}</li>
+            ))}
+          </ol>
+          <p>{cocktail.endSentence}</p>
+        </section>
+      )}
     </div>
   );
 }

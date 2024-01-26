@@ -1,0 +1,36 @@
+.AllDrinksAdminPage {
+  width: 100%;
+  margin-left: 5vh;
+}
+
+.AllDrinksAdminPage h2 {
+  padding-top: 10vh;
+  padding-bottom: 3vh;
+}
+
+.AllDrinksAdminPage h3 {
+  padding-bottom: 3vh;
+  font-size: 1.1rem;
+  color: #323131;
+}
+
+.drink-admin-card {
+  border: 2px double #959292;
+  padding-left: 1vh;
+  margin-bottom: 1vh;
+  width: 30rem;
+  line-height: 30px;
+}
+
+.drink-admin-card h4 {
+  font-weight: 400;
+}
+
+.drink-admin-card label {
+  font-style: italic;
+  font-weight: 700;
+}
+
+input {
+  margin-right: 8px;
+}

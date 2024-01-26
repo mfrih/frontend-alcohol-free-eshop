@@ -47,29 +47,26 @@ function AllDrinksAdminPage() {
   }
 
   return (
-    <div>
+    <div className="AllDrinksAdminPage">
       <h2>Manage all your drinks</h2>
       <h3>
-        This page let's you decide whether a drink should be featured on the
-        Homepage or New
+        ❗️As an admin of Maria-Garita's website, this page let's you decide
+        whether a drink should be featured on the Homepage.
       </h3>
       <div>
         {drinks.map((drink) => {
           return (
-            // at somepoint this should be turned into a OneDrinkAdminCard component
-            <div key={drink.id}>
+            <div className="drink-admin-card" key={drink.id}>
               <h4>{drink.name}</h4>
-              <p>{drink.brand}</p>
-              <p>{drink.category}</p>
               <p>{drink.subcategory}</p>
               <p>
-                <label htmlFor="featured">To be featured on the Hompage?</label>
                 <input
                   type="checkbox"
                   id="featured"
                   checked={drink.featured ?? false}
                   onChange={() => updateFeaturedState(drink)}
                 />
+                <label htmlFor="featured">To be featured on the Hompage?</label>
               </p>
             </div>
           );

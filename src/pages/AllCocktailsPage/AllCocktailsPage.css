@@ -1,14 +1,55 @@
+.AllCocktailsPage {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.cocktail-gen-intro {
+  padding: 10vh;
+  height: 40vh;
+  line-height: 40px;
+}
+
+.cocktail-gen-intro h2 {
+  font-family: "Ysabeau SC", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.marias-emoji {
+  font-size: 2.7rem;
+}
+
+.cocktail-gen-intro quote {
+  font-family: "Ysabeau SC", sans-serif;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.cocktail-finetuning {
+  background-color: aquamarine;
+  padding: 5vh;
+  height: 60vh;
+}
+
+.cocktail-finetuning h3 {
+  font-family: "Ysabeau SC", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.all-sliders {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.generation-button {
+  text-align: center;
+}
 .one-slider {
   display: flex;
   flex-direction: column;
-}
-
-.datalist {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  writing-mode: vertical-lr;
-  width: 300px;
 }
 
 .datalist option {

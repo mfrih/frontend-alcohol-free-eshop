@@ -75,34 +75,54 @@ function AllCocktailsPage() {
   }
 
   return (
-    <div>
-      <h2>
-        Let our wonderful Mocktail Bartender make the perfect cocktail for you!
-      </h2>
-      <h3>
-        "Hi I'm Maria Garita. It's quite easy, just let me know what kind the
-        tastes you fancy and I'll try and imagine the tastiest alcohol free
-        cocktail for you. I promise, you'll find it mind blowing"
-      </h3>
-      <p>Use the sliders to finetune your cocktail:</p>
-      <div className="all-sliders">
-        <Slider label="sweet" value={sweetValue} onChange={handleSweetChange} />
-        <Slider
-          label="bitter"
-          value={bitterValue}
-          onChange={handleBitterChange}
-        />
-        <Slider label="salty" value={saltyValue} onChange={handleSaltyChange} />
-        <Slider label="spicy" value={spicyValue} onChange={handleSpicyChange} />
-        <Slider
-          label="fruity"
-          value={fruityValue}
-          onChange={handleFruityChange}
-        />
+    <div className="AllCocktailsPage">
+      <div className="cocktail-gen-intro">
+        <h2>
+          Let our wonderful Mocktail Bartender make the perfect cocktail for
+          you!
+        </h2>
+        <span className="marias-emoji">👩🏽‍🔬</span>
+        <quote className="marias-quote">
+          "Hi I'm Maria Garita. So tell me what kind of tastes do you fancy and
+          I'll try and imagine the tastiest alcohol free cocktail for you. I
+          promise, you'll find it mind blowing".
+        </quote>
       </div>
-      <button onClick={handleCocktailGeneration}>
-        Hey Maria, Generate my mocktail !
-      </button>
+      <div className="cocktail-finetuning">
+        <h3>So what do you feel like drinking?</h3>
+        <div className="all-sliders">
+          <Slider
+            label="sweet"
+            value={sweetValue}
+            onChange={handleSweetChange}
+          />
+          <Slider
+            label="bitter"
+            value={bitterValue}
+            onChange={handleBitterChange}
+          />
+          <Slider
+            label="salty"
+            value={saltyValue}
+            onChange={handleSaltyChange}
+          />
+          <Slider
+            label="spicy"
+            value={spicyValue}
+            onChange={handleSpicyChange}
+          />
+          <Slider
+            label="fruity"
+            value={fruityValue}
+            onChange={handleFruityChange}
+          />
+        </div>
+        <div className="generation-button">
+          <button onClick={handleCocktailGeneration}>
+            Hey Maria, Generate my mocktail !
+          </button>
+        </div>
+      </div>
       {cocktail && (
         <section className="cocktail">
           <h3>{cocktail.name}</h3>

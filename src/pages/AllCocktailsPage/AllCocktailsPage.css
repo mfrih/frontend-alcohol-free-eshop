@@ -5,7 +5,7 @@
 
 .cocktail-gen-intro {
   padding: 10vh;
-  height: 40vh;
+  height: 50vh;
   line-height: 40px;
 }
 
@@ -15,6 +15,7 @@
   font-size: 1.8rem;
   text-align: center;
   margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 .marias-emoji {
@@ -31,13 +32,14 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  margin-bottom: 5rem;
   & > * {
     width: 40%;
   }
 }
 
 .cocktail-finetuning {
-  height: 65vh;
+  height: 60vh;
 }
 
 .cocktail-finetuning h3 {

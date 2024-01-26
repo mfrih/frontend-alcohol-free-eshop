@@ -24,10 +24,18 @@ function OneDrinkPage() {
   return (
     <div className="OneDrinkPage">
       {oneDrink ? (
-        <>
-          <h3>{oneDrink.name}</h3>
-          <p>{oneDrink.description}</p>
-        </>
+        <div className="drink-container">
+          <div className="drink-image-wrapper">
+            <img src={oneDrink.image_url} alt={oneDrink.name} />
+          </div>
+          <div class="drink-content-wrapper">
+            <h3>{oneDrink.name}</h3>
+            <h4>{oneDrink.subcategory}</h4>
+            <p>{oneDrink.description}</p>
+            <p>{oneDrink.price}</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
       ) : (
         <>
           <p>No drink to display</p>

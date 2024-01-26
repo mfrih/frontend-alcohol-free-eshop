@@ -1,5 +1,5 @@
 .OneDrinkCard {
-  border: 1px solid #f5e6dc;
+  border: 1px solid #f3dac9;
   padding: 15px;
   margin: 10px;
   border-radius: 8px;
@@ -29,8 +29,13 @@
   margin: 5px 0;
 }
 
+.OneDrinkCard a {
+  color: black;
+  text-decoration: none;
+}
+
 .OneDrinkCard button {
-  background-color: #dd6b2d;
+  background-color: #bd8156;
   color: #fff;
   padding: 8px 16px;
   border: none;

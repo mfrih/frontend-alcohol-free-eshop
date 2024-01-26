@@ -1,0 +1,39 @@
+.OneDrinkPage {
+  margin-left: 5rem;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.drink-container {
+  display: flex;
+  gap: 2rem;
+  & > * {
+    width: 45%;
+  }
+}
+
+.drink-content-wrapper h3 {
+  font-family: "Ysabeau SC", sans-serif;
+  font-size: 1.5rem;
+}
+
+.drink-content-wrapper h4 {
+  font-family: "Ysabeau SC", sans-serif;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+
+.drink-content-wrapper p {
+  margin-top: 2rem;
+}
+
+.drink-content-wrapper button {
+  background-color: #bd8156;
+  border: transparent;
+  font-size: 1rem;
+  height: 2.5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px 0 8px 0;
+  margin-top: 2rem;
+}

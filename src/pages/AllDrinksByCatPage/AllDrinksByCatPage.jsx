@@ -55,9 +55,7 @@ function AllDrinksByCatPage() {
           setSearchParams={setSearchParams}
         />
       </div>
-      <div>
-        <DrinkList drinks={displayedDrinks} drinkCategory={drinkCategory} />
-      </div>
+      <DrinkList drinks={displayedDrinks} drinkCategory={drinkCategory} />
     </div>
   );
 }

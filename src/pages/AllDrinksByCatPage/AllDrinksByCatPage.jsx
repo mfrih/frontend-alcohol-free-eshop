@@ -47,7 +47,7 @@ function AllDrinksByCatPage() {
   }
 
   return (
-    <div>
+    <div className="AllDrinksByCatPage">
       <h2>Choose from all our drinks</h2>
       <div className="SubCategoryList">
         <SubCategoryList

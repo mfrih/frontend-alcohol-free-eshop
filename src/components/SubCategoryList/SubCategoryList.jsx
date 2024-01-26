@@ -1,4 +1,5 @@
 import React from "react";
+import "./SubCategoryList.css";
 
 function SubCategoryList({ uniqueSubCategories, setSearchParams }) {
   const handleSubCategoryClick = (subcategory) => {
@@ -7,7 +8,7 @@ function SubCategoryList({ uniqueSubCategories, setSearchParams }) {
 
   return (
     <>
-      <div>
+      <div className="SubCategoryList">
         {uniqueSubCategories.map((subcategory) => {
           return (
             <div

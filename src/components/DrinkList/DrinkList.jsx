@@ -1,6 +1,7 @@
 import React from "react";
 import "./DrinkList.css";
 import { Link } from "react-router-dom";
+import OneDrinkCard from "../OneDrinkCard/OneDrinkCard";
 
 function DrinkList({ drinks, drinkCategory }) {
   return (
@@ -8,14 +9,8 @@ function DrinkList({ drinks, drinkCategory }) {
       <div>
         {drinks.map((drink) => {
           return (
-            // at some point this should be changed into a OneDrinkCard component
             <div key={drink.id}>
-              <Link to={`/${drinkCategory}/${drink.id}`}>
-                <img src={drink.image_url} alt={drink.name} />
-                <h3> {drink.name}</h3>
-                <p>{drink.brand}</p>
-                <p>{drink.price}</p>
-              </Link>
+              <OneDrinkCard drink={drink} />
             </div>
           );
         })}

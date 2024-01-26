@@ -1,9 +1,10 @@
 import React from "react";
 import "./OneDrinkCard.css";
+import { Link } from "react-router-dom";
 
 function OneDrinkCard({ drink }) {
   return (
-    <div className="OneDrinkCard">
+    <Link to={`/${drink.category}/${drink.id}`} className="OneDrinkCard">
       <div className="image-wrapper">
         <img src={drink.image_url} alt={drink.name} />
       </div>
@@ -12,7 +13,7 @@ function OneDrinkCard({ drink }) {
       <p>{drink.subcategory}</p>
       <p>{drink.price}</p>
       <button>Add to Cart</button>
-    </div>
+    </Link>
   );
 }
 

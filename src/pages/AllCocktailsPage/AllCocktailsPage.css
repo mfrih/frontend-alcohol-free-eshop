@@ -1,6 +1,6 @@
 .AllCocktailsPage {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .cocktail-gen-intro {
@@ -27,10 +27,17 @@
   font-style: italic;
 }
 
+.cocktail-generation-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  & > * {
+    width: 40%;
+  }
+}
+
 .cocktail-finetuning {
-  background-color: aquamarine;
-  padding: 5vh;
-  height: 60vh;
+  height: 65vh;
 }
 
 .cocktail-finetuning h3 {
@@ -42,20 +49,61 @@
 .all-sliders {
   text-align: center;
   margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 .generation-button {
   text-align: center;
 }
-.one-slider {
-  display: flex;
-  flex-direction: column;
+
+.generation-button button {
+  background-color: #bd8156;
+  border: transparent;
+  font-size: 1rem;
+  height: 2.5rem;
+  margin: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px 0 8px 0;
 }
 
-.datalist option {
-  padding: 0;
+.cocktail-wrapper {
+  border: 1px solid #bd8156;
 }
-.slider-input[type="range"] {
-  width: 300px;
-  margin: 0;
+
+.cocktail h3 {
+  font-family: "Ysabeau SC", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.cocktail h4 {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 50px;
+}
+
+.cocktail ul {
+  text-align: center;
+  line-height: 25px;
+  list-style: none;
+}
+
+.cocktail ol {
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 3vh;
+  list-style: none;
+}
+
+.cocktail p {
+  text-align: center;
+}
+
+.maria-waiting {
+  font-family: "Ysabeau SC", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
 }

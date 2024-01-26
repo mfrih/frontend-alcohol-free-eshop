@@ -15,6 +15,7 @@ function AllCocktailsPage() {
   const [spicyValue, setSpicyValue] = useState(0);
   const [fruityValue, setFruityValue] = useState(0);
   const [cocktail, setCocktail] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSweetChange = (e) => {
     setSweetValue(e.target.value);
@@ -37,6 +38,8 @@ function AllCocktailsPage() {
   };
 
   async function handleCocktailGeneration() {
+    setIsLoading(true);
+
     try {
       const messageForAssistant = {
         sweet: sweetValue,
@@ -67,8 +70,8 @@ function AllCocktailsPage() {
       const returnedCocktail = JSON.parse(
         completion.choices[0].message.content
       );
-      // console.log(returnedCocktail);
       setCocktail(returnedCocktail);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -88,59 +91,68 @@ function AllCocktailsPage() {
           promise, you'll find it mind blowing".
         </quote>
       </div>
-      <div className="cocktail-finetuning">
-        <h3>So what do you feel like drinking?</h3>
-        <div className="all-sliders">
-          <Slider
-            label="sweet"
-            value={sweetValue}
-            onChange={handleSweetChange}
-          />
-          <Slider
-            label="bitter"
-            value={bitterValue}
-            onChange={handleBitterChange}
-          />
-          <Slider
-            label="salty"
-            value={saltyValue}
-            onChange={handleSaltyChange}
-          />
-          <Slider
-            label="spicy"
-            value={spicyValue}
-            onChange={handleSpicyChange}
-          />
-          <Slider
-            label="fruity"
-            value={fruityValue}
-            onChange={handleFruityChange}
-          />
+      <div className="cocktail-generation-wrapper">
+        <div className="cocktail-finetuning">
+          <h3>So what do you feel like drinking?</h3>
+          <div className="all-sliders">
+            <Slider
+              label="sweet"
+              value={sweetValue}
+              onChange={handleSweetChange}
+            />
+            <Slider
+              label="bitter"
+              value={bitterValue}
+              onChange={handleBitterChange}
+            />
+            <Slider
+              label="salty"
+              value={saltyValue}
+              onChange={handleSaltyChange}
+            />
+            <Slider
+              label="spicy"
+              value={spicyValue}
+              onChange={handleSpicyChange}
+            />
+            <Slider
+              label="fruity"
+              value={fruityValue}
+              onChange={handleFruityChange}
+            />
+          </div>
+          <div className="generation-button">
+            <button onClick={handleCocktailGeneration} disabled={isLoading}>
+              Hey Maria, Generate my mocktail !
+            </button>
+          </div>
         </div>
-        <div className="generation-button">
-          <button onClick={handleCocktailGeneration}>
-            Hey Maria, Generate my mocktail !
-          </button>
+        <div className="cocktail-wrapper">
+          {isLoading && <p>Shaking...</p>}
+          {cocktail ? (
+            <section className="cocktail">
+              <h3>{cocktail.name}</h3>
+              <h4>Ingredients</h4>
+              <ul>
+                {cocktail.ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+              </ul>
+              <h4>Instructions</h4>
+              <ol>
+                {cocktail.instructions.map((instruction, index) => (
+                  <li key={index}>{instruction}</li>
+                ))}
+              </ol>
+              <p>{cocktail.endSentence}</p>
+            </section>
+          ) : (
+            <p className="maria-waiting">
+              Maria is waiting for your order... chop chop!
+            </p>
+          )}
         </div>
       </div>
-      {cocktail && (
-        <section className="cocktail">
-          <h3>{cocktail.name}</h3>
-          <h4>Ingredients</h4>
-          <ul>
-            {cocktail.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-          </ul>
-          <h4>Instructions</h4>
-          <ol>
-            {cocktail.instructions.map((instruction, index) => (
-              <li key={index}>{instruction}</li>
-            ))}
-          </ol>
-          <p>{cocktail.endSentence}</p>
-        </section>
-      )}
     </div>
   );
 }

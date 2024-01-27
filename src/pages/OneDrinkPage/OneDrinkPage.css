@@ -37,3 +37,7 @@
   border-radius: 8px 0 8px 0;
   margin-top: 2rem;
 }
+
+.drink-image-wrapper img {
+  width: 35rem;
+}
